@@ -3,6 +3,7 @@ import winston from "winston";
 import helmet from "helmet";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
+import router from "./routes";
 
 // Create express app
 const app = express();
@@ -17,6 +18,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("Hello World!");    
 });
+
+app.use("/api", router);
 
 app.use((err, _req, res, _next) => {
     winston.error(err.message, err);

@@ -1,7 +1,8 @@
 import http from "http";
 import app from "./app";
+import { env } from "./config";
 
-const  PORT = process.env.PORT || 3000;
+const PORT = env.port || 3000;
 const server = http.createServer(app);
 const url = `http://localhost:${PORT}`;
 
